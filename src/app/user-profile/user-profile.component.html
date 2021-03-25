@@ -1,0 +1,32 @@
+<div class="container p-5">
+    <div class="row">
+
+            <div class="myImgDiv col-md">
+                <img class="img-fluid myImg" src="../assets/images/signUp.png" alt="">
+                <div class="imgInfo">
+                    <h4 class="myfont">Hi, {{profile.username}}</h4>
+                    <p>email</p>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <h3 class="text-center p-3 myfont">Profile Information</h3>
+            <table class="table"  *ngFor="let profile of profile;" >
+
+                  <tr  >
+                   <th class="myfont">UserName</th>
+                   <td>{{profile.username}}</td>
+                  </tr>
+                  <tr>
+                    <th class="myfont">EMail</th>
+                    <td>{{profile.email}}</td>
+                   </tr>
+                   <!-- <tr>
+                    <th></th>
+                    <td>sassa</td>
+                   </tr> -->
+              </table>
+        </div>
+    </div>
+</div>

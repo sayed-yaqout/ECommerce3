@@ -1,0 +1,24 @@
+* {
+    font-family: cursive;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid rgb(87, 124, 192);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 75%;
+    color: blue;
+    color: white;
+    display: flex;
+}
+
+.imageSize{
+  height: 300px;
+  overflow: hidden;
+}

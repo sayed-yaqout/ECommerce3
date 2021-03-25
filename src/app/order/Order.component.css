@@ -1,0 +1,15 @@
+
+.myEye{
+    color: #283593;
+
+}
+.myTrash{
+    color: #f44336;
+}
+.myTable{
+    border-radius: 10px;
+}
+
+table tbody tr{
+color: rgba(0,0,0,.87);
+}

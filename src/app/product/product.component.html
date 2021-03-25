@@ -1,0 +1,25 @@
+<div class="card mb-2 bg-white " style="width: 18rem; position: relative;">
+  <div class="forDivImg">
+    <a>
+      <img [src]="product.image ||'../../assets/images/uploadImage.png'" class="card-img-top forImage" style="float:left;" alt="...">
+    </a>
+  </div>
+
+  <div class="card-body p-1">
+    <h3 class="card-text text-left">{{product.title}}</h3>
+    <h6 class="text-left">size:{{product.size}}</h6>
+    <h6 class="text-left">{{product.price|currency:"USD"}}$</h6>
+
+  </div>
+  <div class="favClass">
+    <a href="#">
+      <i class="fa fa-heart text-danger favItemHeart" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="addToCart" style="cursor: pointer;" (click)="addToCart()">
+    <a style="color: white;" >
+      <i class="fa fa-shopping-cart mt-2" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>

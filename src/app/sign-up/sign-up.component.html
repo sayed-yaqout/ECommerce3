@@ -1,0 +1,202 @@
+<!-- <div class="container p-5">
+        <div class="row">
+            <div class="col-md p-3">
+                <h2 class="w-25 m-auto">Sign up</h2>
+
+                <form [formGroup]="myForm" #register="ngForm" class="form-group ">
+                    <div class="row">
+                        <div class="col-md-6 p-5">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" formControlName="mail" class="form-control">
+                                <div class="alert alert-success" *ngIf='myForm.controls.mail.valid'>tm successfully
+                                </div>
+                                <div class="alert alert-danger" *ngIf='myForm.controls.mail.touched&&myForm.controls.mail.errors'>
+                                    <span *ngIf='myForm.controls.mail.errors.required'>
+                                                    Email field is required
+                                                </span>
+                                    <span *ngIf='myForm.controls.mail.errors.pattern'>
+                                                    invalid pattern for email form  example@gmail.com
+                                                </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userName">userName</label>
+                                <input type="text" formControlName="userName" class="form-control">
+                                <div class="alert alert-success" *ngIf='myForm.controls.userName.valid'>tm successfully
+                                </div>
+                                <div class="alert alert-danger" *ngIf='myForm.controls.userName.touched&&myForm.controls.userName.errors'>
+                                    <span *ngIf='myForm.controls.userName.errors.required'>
+                                                    UserName field is required
+                                                </span>
+                                    <span *ngIf='myForm.controls.userName.errors.minlength'>
+                                                    UserName must has at least 3 characters
+                                                </span>
+                                    <span *ngIf='myForm.controls.userName.errors.pattern'>
+                                                    UserName doesn't match the pattern (example Sabrina123)
+                                                </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input #password type="password" formControlName="password" class="form-control">
+                                <div class="alert alert-success" *ngIf='myForm.controls.password.valid'>tm successfully
+                                </div>
+                                <div class="alert alert-danger" *ngIf='myForm.controls.password.touched&&myForm.controls.password.errors'>
+                                    <span *ngIf='myForm.controls.password.errors.required'>
+                                                    Password field is required
+                                                </span>
+                                    <span *ngIf='myForm.controls.password.errors.pattern'>
+                                                    Password must has letters and digits
+                                                </span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input #confirmPassword type="password" formControlName="confirmPassword" class="form-control">
+                                <div class="alert alert-success" *ngIf='myForm.controls.confirmPassword.valid'>tm successfully
+                                </div>
+                                <div class="alert alert-danger" *ngIf='myForm.controls.confirmPassword.touched&&myForm.controls.confirmPassword.errors'>
+                                    <span *ngIf='myForm.controls.confirmPassword.errors.required'>
+                                                    Confirm Password field is required
+                                                </span>
+                                    <span *ngIf=' password.value!=confirmPassword.value'>
+                                                    Not matched password
+                                                </span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Male">Male</label> <input type="radio" name="gender" value='Male' class="mr-3">
+
+                                <label for="Female">Female</label> <input type="radio" name='gender' value='Female' class="">
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-5">
+
+
+                            <div class="addImg">
+                                <div>
+                                    <img class="img-fluid" src="/assets/images/signUp.png" (click)='done(t)' #t2/>
+                                </div>
+
+                                <label for="file-upload" class="custom-file-upload">
+                                    <i class="fa fa-cloud-upload"></i> Custom Upload
+                                </label>
+                                <input id="file-upload" type="file" (change)='change($event,t2)' #t />
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md text-center">
+                            <input class="btn btn-primary" type="button" value="Register">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div> -->
+
+
+
+
+
+
+
+<div class="container text-center justify-content-center bg-white">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-container">
+        <!-- <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" /> -->
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+              maxlength="20" #username="ngModel" />
+            <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required">Username is required</div>
+              <div *ngIf="username.errors.minlength">
+                Username must be at least 3 characters
+              </div>
+              <div *ngIf="username.errors.maxlength">
+                Username must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+              #email="ngModel" />
+            <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+              <div *ngIf="email.errors.required">Email is required</div>
+              <div *ngIf="email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+              minlength="6" #password="ngModel" />
+            <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+        <label for="Male">Male</label> <input type="radio" name="gender" value='Male' class="mr-3">
+
+        <label for="Female">Female</label> <input type="radio" name='gender' value='Female' class="">
+
+
+      </div>
+          
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Sign Up</button>
+          </div>
+
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+      </div>
+
+      
+
+    </div>
+    <div class="text-center col-md-6">
+      <div class="addImg">
+        <div class="mt-2 w-75 imageSize">
+            <img class="img-fluid" src="../../assets/images/uploadImage.png" (click)='done(t)' #t2/>
+        </div>
+
+        <label for="file-upload" class="custom-file-upload bg-primary text-center rounded m-3">
+          <h4 class="text-center">upload image</h4>
+          <!-- <i class="fas fa-cloud-upload-alt"></i>  -->
+        </label>
+        <input class="forinput rounded" id="file-upload" type="file" (change)='change($event,t2)' #t />
+    </div>
+    </div>
+
+  </div>
+</div>

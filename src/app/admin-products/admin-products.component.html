@@ -1,0 +1,54 @@
+<div class="container searchContainer">
+  <div class="row pt-3 pb-3">
+    <div class="col-sm-3">
+      <div class="dash-title font-weight-bold">Search</div>
+    </div>
+    <div class="col-sm-6 pr-1">
+      <input type="text" class="form-control" aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Search Products"
+        #inputSearch
+        (keyup)="OnChange($event)"
+        >
+    </div>
+    <div class="col-sm-3 pl-0">
+      <button
+        class="btn btn-primary w-auto  ml-2 pl-3 pr-3"
+        (click)="onSearch(inputSearch.value)"
+      >
+      Search
+      </button>
+      <button
+        class="btn btn-primary w-auto ml-2"
+        (click)="navigateToAddProduct()"
+        >
+        Add Product
+      </button>
+    </div>
+  </div>
+</div>
+<hr class="ml-4 mr-4">
+
+
+<div class="container-fluid bg-white">
+  <div *ngIf="ProductList;else noProduct">
+    <div class="row p-4 bg-white">
+      <div
+          *ngFor="let product of ProductList"
+          class="productCard bg-light text-center col-md-4 box-shadow-full"
+          >
+        <app-product-update [product]=product></app-product-update>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noProduct class="container bg-dark m-auto">
+    <p class="alert alert-danger w-50 font-weight-bolder text-center">
+      products list is empty
+    </p>
+  </ng-template>
+</div>
+
+
+
+

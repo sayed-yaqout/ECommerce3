@@ -1,0 +1,11 @@
+.myImg{
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+}
+.myBorder{
+    border: none;
+}
+.myfont{
+    color: #283593;
+}

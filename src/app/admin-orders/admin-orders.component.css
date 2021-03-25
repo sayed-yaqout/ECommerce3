@@ -1,0 +1,43 @@
+body{
+    background-color: #f3f3f4;
+    font-family: sans-serif;
+}
+
+.searchDiv {
+    border: 1px solid #eee;
+    padding: 25px;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    background: #fff;
+    border-radius: 10px;
+}
+
+.inputSearch {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #eee;
+    width: 50%;
+    background: #fff;
+}
+
+.inputAfterClick {
+    border-bottom: #283593;
+}
+/* .myEye{
+    color: #283593;
+
+}
+.myTrash{
+    color: #f44336;
+}
+.myTable{
+    border-radius: 10px;
+} */
+table thead th{
+    color:rgba(0,0,0,.54);
+}
+/* table tbody tr{
+color: rgba(0,0,0,.87);
+} */
+/* table tr{
+    border-bottom: #f3f3f4;
+} */

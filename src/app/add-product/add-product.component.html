@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+      <span class="bg-dark-gray d-block">Upload Image</span>
+      <!-- src="../../assets/images/uploadImage.png" -->
+      <img id="uploadedImage"
+      [src]="imagePreview || '../../assets/images/uploadImage.png'"
+      alt="image" class="d-block upImgClass mw-100 mx-auto"
+      >
+      <input class="" type="file" (change)=OnUpload($event);>
+
+    </div>
+
+    <div class="col-lg-6">
+      <a href="#">Back To product</a>
+
+      <div class="input-group mb-3 mt-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+        </div>
+        <input  type="text" #title [(ngModel)] ="product.title"
+                class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                placeholder="Add Product Title">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
+        </div>
+        <input type="number" #price [(ngModel)] ="product.price"
+                class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                placeholder="Add Product Price">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Sizes</span>
+        </div>
+        <input type="text" #sizes [(ngModel)] ="product.size"
+                class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                placeholder="Add Product Sizes">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Details</span>
+        </div>
+        <input type="text" #details [(ngModel)] ="product.details"
+               class="form-control" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default"
+               placeholder="Add Details">
+      </div>
+
+      <div #warningDiv
+            class="alert alert-danger d-none border-2 m-auto"
+            style="margin-bottom: 5px !important; border: 3px solid blue;border-radius: 5px;"
+      >all field are required.</div>
+      <hr>
+      <div class="text-center">
+          <button
+            class="btn btn-success w-25"
+            (click)='OnCreateProduct(title.value,price.value,sizes.value,details.value)'
+            >
+            Create
+          </button>
+          <button
+            class="btn btn-danger w-25 ml-2"
+            (click)='OnDiscard()'
+            >
+            Discard
+          </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,48 @@
+
+<div *ngIf="cartItems.length != 0"  class="justify-content-center m-5 p-5 text-center">
+    <!-- <div> <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of cartItems">
+    <app-cart-item   [cartItem]="item"></app-cart-item>
+        </li>
+        
+         </ul> -->
+
+         <table id="customers" class="table table-striped table-hover">
+            <tr>
+                <th>#</th>
+                <th >Id</th>
+                <th >Name</th>
+                <th >Price</th>
+                <th >Delete</th>
+            </tr>
+                
+            
+            
+                <tr *ngFor="let item of cartItems;index as i;"  >
+                    <th >{{i+1}}</th>
+                    <td>{{item.productId}}</td>
+                    <td >{{item.title}}</td>
+                    <td >{{(item.price)| currency:"USD"}}</td>
+                    <!-- <td >{{this.getQty(item.productId)}} </td> -->
+                    <button class="btn btn-danger" (click)="deleteItem(item.productId)">DELETE</button>
+                  
+                </tr>
+          </table>
+          <li class="list-group-item bg-success active">
+            <span>Total:</span>
+          <strong>{{cartTotal |currency:USD}}</strong>
+        </li>
+
+    <button *ngIf="!cashed" class="btn btn-primary btn-lg m-5" (click)="cashOut()" (click)="success()" type="submit">Cash Out </button>
+</div>
+   
+
+<div *ngIf="cartItems.length === 0 "  class="alert alert-info">
+    cart is empty.
+</div>
+
+<div class="alert alert-info text-success width-50" *ngIf="cashed">
+<h4>your order have been delivered successfully and waiting acceptance</h4>
+
+</div>
+
